@@ -147,9 +147,9 @@ def ytdl_download(url, tempdir, chat_id, message) -> dict:
 
 
 def convert_to_mp4(resp: dict):
-    default_type = ["video/x-flv"]
     if resp["status"]:
         mime = filetype.guess(resp["filepath"]).mime
+        default_type = ["video/x-flv"]
         if mime in default_type:
             path = resp["filepath"]
             new_name = os.path.basename(path).split(".")[0] + ".mp4"
